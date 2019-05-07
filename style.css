@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+body{
+	font-family: Open Sans;
+	margin: 0;
+	cursor: default;
+}
+.container{
+	display: flex;
+	justify-content: center;
+	padding: 0 40px;
+	height: 100vh;
+}
+.block{
+	width: 100%;
+	max-width: 900px;
+	padding: 0 20px;
+}
+#header{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
+	background-color: #3086FF;
+}
+#header .title{
+	font-size: 45px;
+	text-transform: uppercase;
+	color: white;
+	text-align: center;
+	padding: 5px 20px;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+	font-weight: bold;
+	transition: 0.3s;
+}
+#root, #root li{
+	width: 100%;
+	padding-left: 0;
+	margin-left: 0;
+	list-style: none;
+	color: white;
+}
+#root{
+	margin-top: 40px;
+}
+#root ul{
+	padding-left: 0;
+}
+#root li{
+	border-bottom: 1px solid white;
+	padding: 10px 5px;
+	transition: 0.3s;
+}
+.buttons{
+	margin-bottom: 20px;
+}
+button{
+	margin-top: 0 20px;
+	transition: 0.3s;
+	border: none !important;
+	box-shadow: none !important;
+	padding: 8px 16px !important;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-family: Open Sans;
+	background-color: white;
+	color: black;
+}
+button:hover{
+	background-color: black;
+	color: white;
+	transition: 0.3s;
+}
