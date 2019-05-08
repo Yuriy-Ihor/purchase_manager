@@ -15,7 +15,7 @@ class App extends React.Component{
 			value: 'Camera',
       date: 2019,
       fullDate: '2019-01-01',
-      cur: 'CAD',
+      cur: 'UAH',
       price: '1240',
       showing: "start",
       report: 0,
@@ -39,7 +39,6 @@ class App extends React.Component{
 	handleSubmit = (event) => {
     	event.preventDefault();
   	}
-  
   StateReport =() =>{
     	this.setState({showing: 'report'});
   }
@@ -126,20 +125,18 @@ class App extends React.Component{
 					else{sum+=tempVal};
 				}			
 			}
-      alert(sum);
-		this.state.report=sum;
+		this.setState({report:sum});
 		console.log("Income was succesfully reported!");
 		}else{
 			alert("You haven\'t written proper values");
 		}	
 	}
 	DeletePurchase = () =>{
-		let dateToClear = this.state.fullDate;
 		let tempArr;
 		let deleted;
 		for(let i=0; i<purchaseNum; i++){
 			tempArr=purchasesArr[i].split(' ');
-			if (tempArr[0]==dateToClear){
+			if (tempArr[0]==this.state.fullDate){
 				purchasesArr.splice(i,1);
 				listPurchases = purchasesArr.map((purchase) =>
  				 <li>{purchase}</li>
