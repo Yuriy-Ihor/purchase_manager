@@ -28,11 +28,11 @@ body{
 	text-transform: uppercase;
 	color: white;
 	text-align: center;
-	padding: 5px 20px;
-	border-top: 1px solid white;
-	border-bottom: 1px solid white;
+	padding: 5px 20px;	
 	font-weight: bold;
 	transition: 0.3s;
+	background: white;
+	color: #3086FF;
 }
 #root, #root li{
 	width: 100%;
@@ -55,7 +55,7 @@ body{
 .buttons{
 	margin-bottom: 20px;
 }
-button{
+button, input[type="submit"]{
 	margin-top: 0 20px;
 	transition: 0.3s;
 	border: none !important;
@@ -65,10 +65,16 @@ button{
 	text-transform: uppercase;
 	font-family: Open Sans;
 	background-color: white;
-	color: black;
+	color: #3086FF;
+	cursor: pointer !important;
 }
-button:hover{
+button:hover, input[type="submit"]:hover{
 	background-color: black;
 	color: white;
 	transition: 0.3s;
+}
+.active{
+	background-color: black !important;
+	color: white !important;
+	cursor: default !important;
 }

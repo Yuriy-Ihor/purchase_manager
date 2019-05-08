@@ -1,10 +1,8 @@
 Hello!
 
 !IMPORTANT!
-If site doesn't work properly, please, try to upload jsx file as HTTP! The easiest way to make site work 
+If site doesn't work properly, please, try to upload jsx file as HTTP! One of the way to make site work 
 properly, upload it to the localhost.
-If you still have any troubles, use this:
-https://codepen.io/anon/pen/joPGZQ?fbclid=IwAR0kUHu5V-i1ammmdA2oPPu4z5d5F5xgLVPytoHIzh4VmhfokhmFShBgqw0
 
 Site instructions:
 Add purchase - add new purchase. Use the follow example: "year-mon-day type currency price". Write currency
@@ -19,10 +17,8 @@ Have fun! :)
 ¬≥таю!
 
 !¬ј∆Ћ»¬ќ!
-якщо сайт працюЇ некоректно, будь ласка, спробуйте завантажити jsx €к HTTP! Ќайлегший спос≥б це зробити - 
+якщо сайт працюЇ некоректно, будь ласка, спробуйте завантажити jsx €к HTTP! ќдним ≥з способ≥в це зробити - 
 закинути сайт на localhost.
-якщо у вас дал≥ виникають труднощ≥, використайте це:
-https://codepen.io/anon/pen/joPGZQ?fbclid=IwAR0kUHu5V-i1ammmdA2oPPu4z5d5F5xgLVPytoHIzh4VmhfokhmFShBgqw0
 
  ористуванн€ сайтом:
 Add purchase - додати нову покупку. ѕиш≥ть у так: "р≥к-м≥с€ць-день видтовару валюта ц≥на". ¬алюту вводьте
