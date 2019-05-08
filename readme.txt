@@ -7,9 +7,9 @@ If you still have any troubles, use this:
 https://codepen.io/anon/pen/joPGZQ?fbclid=IwAR0kUHu5V-i1ammmdA2oPPu4z5d5F5xgLVPytoHIzh4VmhfokhmFShBgqw0
 
 Site instructions:
-Add purchase - add new purchase. Use the follow example: "year-mon-day type currency price";
-Report - report for any year in any currency you want. For instance, in write "2019 UAH"
-(important: write currency in UPPER CASE!);
+Add purchase - add new purchase. Use the follow example: "year-mon-day type currency price". Write currency
+in upper case!;
+Report - report for any year in any currency you want (important: write currency in UPPER CASE!);
 Remove purchase - write date of purchase, which you want to delete. For example, write "2019-04-05"
 
 Have fun! :)
@@ -25,9 +25,10 @@ Have fun! :)
 https://codepen.io/anon/pen/joPGZQ?fbclid=IwAR0kUHu5V-i1ammmdA2oPPu4z5d5F5xgLVPytoHIzh4VmhfokhmFShBgqw0
 
 Користування сайтом:
-Add purchase - додати нову покупку. Пишіть у такій формі: "рік-місяць-день видтовару валюта ціна";
-Report - виведення виручки за будь-який рік у будь-якій валюті. Наприклад, напишіть "2019 UAH" (важливо:
+Add purchase - додати нову покупку. Пишіть у так: "рік-місяць-день видтовару валюта ціна". Валюту вводьте
+великими літерами!;
+Report - виведення виручки за будь-який рік у будь-якій валюті (важливо:
 назву валюти пишіть ВЕЛИКИМИ ЛІТЕРАМИ!);
-Remove purchase - введіть дату тієї покупки, яку ви хочете вилучити. Наприклад, напишіть "2019-04-05"
+Remove purchase - введіть дату тієї покупки, яку ви хочете вилучити. Наприклад, введіть "2019-04-05"
 
 Насолоджуйтесь! :)
