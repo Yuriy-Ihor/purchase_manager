@@ -3,6 +3,8 @@ var purchasesArr=['2019-04-05 T-shirt USD 45', '2019-04-26 Radio EUR 450']; //х
 var listPurchases = purchasesArr.map((purchase) =>
   <li>{purchase}</li>
 );
+
+//function InputForm(){return (<div>123</div>);}
 class App extends React.Component{
 	constructor(props){
 		super(props);
@@ -16,6 +18,7 @@ class App extends React.Component{
       cur: 'CAD',
       price: '1240',
       showing: "start",
+      report: 0,
 		};
 	}
 	SetValue = (event) =>{
@@ -36,6 +39,7 @@ class App extends React.Component{
 	handleSubmit = (event) => {
     	event.preventDefault();
   	}
+  
   StateReport =() =>{
     	this.setState({showing: 'report'});
   }
@@ -45,6 +49,7 @@ class App extends React.Component{
   StateDelete =() =>{
     this.setState({showing: 'delete'});
   }
+  
 	AddPurchase = () =>{
     console.log(this.state.fullDate);
     console.log(this.state.value);
@@ -96,6 +101,7 @@ class App extends React.Component{
 			console.log(findresponse);
 		});
 		console.log("Data was succesfully loaded!");
+
 	}
 	ReportPurchase = () =>{
     console.log(this.state.date);
@@ -105,12 +111,7 @@ class App extends React.Component{
     let date=this.state.date;
     console.log(date);
     date = date.toString();
-    let valSplit=[];
-    valSplit[0]=date;
-    valSplit[1] = this.state.cur;
-		let yearToReport= valSplit[0];
-		let currency = valSplit[1];
-		if(yearToReport && currency){
+		if(date && this.state.cur){
 			let tempArr;
 			let sum=0;
 			let tempVal;
@@ -118,14 +119,15 @@ class App extends React.Component{
 			for(let i=0; i<purchasesArr.length; i++){
 				tempArr=purchasesArr[i].split(' ');
 				let tempArrDate=tempArr[0].split('-');
-				if (tempArrDate[0]==yearToReport){	
+				if (tempArrDate[0]==date){	
 					tempVal=parseInt(tempArr[3],10);
 					curFrom = tempArr[2];
-					if(curFrom!=currency){sum+=this.Convert(curFrom,tempVal,currency)}
+					if(curFrom!=this.state.cur){sum+=this.Convert(curFrom,tempVal,this.state.cur)}
 					else{sum+=tempVal};
 				}			
 			}
-		alert(sum);
+      alert(sum);
+		this.state.report=sum;
 		console.log("Income was succesfully reported!");
 		}else{
 			alert("You haven\'t written proper values");
@@ -183,7 +185,9 @@ class App extends React.Component{
                 <input type="number" value={this.state.date} onChange={this.SetDate} />
                 <input type="text" value={this.state.cur} onChange={this.SetCur} />
                 <input type="submit" value='submit' onClick={this.ReportPurchase} />
+
                 </label>
+                <div>Sum: {this.state.report} {this.state.cur}</div>
               </form>
           <ul>{this.state.arr}</ul>
         </div>
@@ -227,9 +231,12 @@ class App extends React.Component{
           <ul>{this.state.arr}</ul>
         </div>
 		  );
+
 	}
 }
 ReactDOM.render(
   <App />,
   document.getElementById('root')
 );
+
+//<input type="text" value={this.state.value} onChange={this.handleChange} />
