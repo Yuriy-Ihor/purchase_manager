@@ -1,9 +1,8 @@
-var purchaseNum=2;
+﻿var purchaseNum=2;
 var purchasesArr=['2019-04-05 T-shirt USD 45', '2019-04-26 Radio EUR 450']; //хтось тут слухає rammstein?:)
 var listPurchases = purchasesArr.map((purchase) =>
   <li>{purchase}</li>
 );
-
 class App extends React.Component{
 	constructor(props){
 		super(props);
@@ -11,17 +10,47 @@ class App extends React.Component{
 			arr: listPurchases,
 			currs: [],
 			isLoaded: false,
-			value: '',
+			value: 'Camera',
+      date: 2019,
+      fullDate: '2019-01-01',
+      cur: 'CAD',
+      price: '1240',
+      showing: "start",
 		};
 	}
-	handleChange = (event) =>{
+	SetValue = (event) =>{
 		this.setState({value: event.target.value});
 	}
+  SetDate = (event) =>{
+		this.setState({date: event.target.value});
+	}
+  SetCur = (event) =>{
+    this.setState({cur: event.target.value});
+  }
+  SetPrice = (event) =>{
+    this.setState({price: event.target.value});
+  }
+  SetFulldate = (event) =>{
+    this.setState({fullDate: event.target.value});
+  }
 	handleSubmit = (event) => {
     	event.preventDefault();
   	}
+  StateReport =() =>{
+    	this.setState({showing: 'report'});
+  }
+  StateAdd =() =>{
+    this.setState({showing: 'add'});
+  }
+  StateDelete =() =>{
+    this.setState({showing: 'delete'});
+  }
 	AddPurchase = () =>{
-		let newPurchase=this.state.value;
+    console.log(this.state.fullDate);
+    console.log(this.state.value);
+    console.log(this.state.cur);
+    console.log(this.state.price);
+		let newPurchase=this.state.fullDate + ' ' + this.state.value + ' ' + this.state.cur + ' '+ this.state.price.toString();
 		if(newPurchase){
 			purchaseNum++;
 			purchasesArr.push(newPurchase);
@@ -69,7 +98,16 @@ class App extends React.Component{
 		console.log("Data was succesfully loaded!");
 	}
 	ReportPurchase = () =>{
-		let valSplit = this.state.value.split(' ');
+    console.log(this.state.date);
+    console.log(this.state.cur);
+    console.log(this.state.fullDate);
+    console.log(this.state.value);
+    let date=this.state.date;
+    console.log(date);
+    date = date.toString();
+    let valSplit=[];
+    valSplit[0]=date;
+    valSplit[1] = this.state.cur;
 		let yearToReport= valSplit[0];
 		let currency = valSplit[1];
 		if(yearToReport && currency){
@@ -94,7 +132,7 @@ class App extends React.Component{
 		}	
 	}
 	DeletePurchase = () =>{
-		let dateToClear = this.state.value;
+		let dateToClear = this.state.fullDate;
 		let tempArr;
 		let deleted;
 		for(let i=0; i<purchaseNum; i++){
@@ -113,22 +151,82 @@ class App extends React.Component{
 		purchaseNum-=deleted;
 		console.log("Purchase was removed!");
 	}
+	
 	render(){
-		return(
-			<div>			
-				<form onSubmit={this.handleSubmit}>     			
-        			<div className="buttons">
-        				<button type="submit" onClick={this.AddPurchase}>Add new purchase</button>
-						<button type="submit" onClick={this.ReportPurchase}>Report</button>
-						<button type="submit" onClick={this.DeletePurchase}>Delete purchase</button>
-					</div>
-					<label>
-          				<input type="text" value={this.state.value} onChange={this.handleChange} />
-        			</label>
-      			</form>
-				<ul>{this.state.arr}</ul>
-			</div>
-		);
+    if(this.state.showing==='start')
+      return(
+        <div>			
+          <form onSubmit={this.handleSubmit}>     			
+                <div className="buttons">
+                  <button type="submit" onClick={this.StateAdd}>Add new purchase</button>
+                  <button type="submit" onClick={this.StateReport}>Report</button>
+                  <button type="submit" onClick={this.StateDelete}>Delete purchase</button>
+            </div>
+            <label>
+                </label>
+              </form>
+          <ul>{this.state.arr}</ul>
+        </div>
+		  );
+    else
+      if(this.state.showing === "report")
+      return(
+        <div>			
+          <form onSubmit={this.handleSubmit}>     			
+                <div className="buttons">
+                  <button type="submit" onClick={this.StateAdd}>Add new purchase</button>
+                  <button type="submit" onClick={this.StateReport} className='active'>Report</button>
+                  <button type="submit" onClick={this.StateDelete}>Delete purchase</button>
+            </div>
+            <label>
+                Report for 
+                <input type="number" value={this.state.date} onChange={this.SetDate} />
+                <input type="text" value={this.state.cur} onChange={this.SetCur} />
+                <input type="submit" value='submit' onClick={this.ReportPurchase} />
+                </label>
+              </form>
+          <ul>{this.state.arr}</ul>
+        </div>
+		  );
+    else
+    if(this.state.showing === "add")
+      return(
+        <div>			
+          <form onSubmit={this.handleSubmit}>     			
+                <div className="buttons">
+                  <button type="submit" onClick={this.StateAdd} className='active'>Add new purchase</button>
+                  <button type="submit" onClick={this.StateReport}>Report</button>
+                  <button type="submit" onClick={this.StateDelete}>Delete purchase</button>
+            </div>
+            <label>
+                <input type="date" value={this.state.fullDate} onChange={this.SetFulldate} />
+                <input type="text" value={this.state.value} onChange={this.SetValue} />
+                <input type="text" value={this.state.cur} onChange={this.SetCur} />
+                <input type="number" value={this.state.price} onChange={this.SetPrice} />
+                <input type="submit" value='submit' onClick={this.AddPurchase} />
+                </label>
+              </form>
+          <ul>{this.state.arr}</ul>
+        </div>
+		  );
+    else
+    if(this.state.showing === "delete")
+      return(
+        <div>			
+          <form onSubmit={this.handleSubmit}>     			
+                <div className="buttons">
+                  <button type="submit" onClick={this.StateAdd}>Add new purchase</button>
+                  <button type="submit" onClick={this.StateReport}>Report</button>
+                  <button type="submit" onClick={this.StateDelete} className='active'>Delete purchase</button>
+            </div>
+            <label>
+                      <input type="date" value={this.state.fullDate} onClick={this.state.fullDate} onChange={this.SetFulldate} />
+                      <input type="submit"  value="Remove"  onClick={this.DeletePurchase} />
+                </label>
+              </form>
+          <ul>{this.state.arr}</ul>
+        </div>
+		  );
 	}
 }
 ReactDOM.render(
